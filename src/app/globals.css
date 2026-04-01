@@ -1,0 +1,97 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-bg: #0e0c0b;
+  --color-surface: #1a1714;
+  --color-border: #2e2a26;
+  --color-accent: #ff6b35;
+  --color-accent-muted: color-mix(in srgb, #ff6b35 15%, transparent);
+  --color-gold: #ffd166;
+  --color-text: #f5f0eb;
+  --color-text-muted: #9e9289;
+  --color-skeleton-base: #252019;
+  --color-skeleton-highlight: #302a22;
+
+  --font-inter: 'Inter', system-ui, sans-serif;
+}
+
+[data-theme='light'] {
+  --color-bg: #faf8f5;
+  --color-surface: #f0ebe4;
+  --color-border: #ddd5c8;
+  --color-accent: #e05520;
+  --color-accent-muted: color-mix(in srgb, #e05520 12%, transparent);
+  --color-gold: #b87209;
+  --color-text: #1a1410;
+  --color-text-muted: #6b5f54;
+  --color-skeleton-base: #e8e0d5;
+  --color-skeleton-highlight: #f0e8dc;
+  --color-swatch-1: #dfd0bc;
+  --color-swatch-2: #d2d6c4;
+  --color-swatch-3: #dcd3c4;
+  --color-swatch-4: #cac8c0;
+}
+
+:root {
+  --color-swatch-1: #a0683a;
+  --color-swatch-2: #6e7838;
+  --color-swatch-3: #8c6030;
+  --color-swatch-4: #7a4e60;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@utility shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-skeleton-base) 25%,
+    var(--color-skeleton-highlight) 50%,
+    var(--color-skeleton-base) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+  will-change: background-position;
+  transform: translateZ(0);
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-inter);
+    line-height: 1.7;
+    min-height: 100dvh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shimmer {
+    animation: none;
+    background: var(--color-skeleton-base);
+  }
+}
