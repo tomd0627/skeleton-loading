@@ -4,9 +4,6 @@ export function Hero() {
   return (
     <section className="mx-auto max-w-5xl px-6 py-20 md:py-28">
       <div className="max-w-2xl">
-        <p className="mb-4 text-sm font-medium uppercase tracking-wider text-accent">
-          Portfolio Demo
-        </p>
         <h1 className="mb-6 text-4xl font-bold leading-tight text-text md:text-5xl">
           Skeleton Screen &amp;
           <br />
