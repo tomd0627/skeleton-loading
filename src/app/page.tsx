@@ -15,6 +15,10 @@ import { ProductGridContent } from '@/components/patterns/product-grid/content';
 import { ProductGridSkeleton } from '@/components/patterns/product-grid/skeleton';
 import { ProfileBlockContent } from '@/components/patterns/profile-block/content';
 import { ProfileBlockSkeleton } from '@/components/patterns/profile-block/skeleton';
+import { SettingsFormContent } from '@/components/patterns/settings-form/content';
+import { SettingsFormSkeleton } from '@/components/patterns/settings-form/skeleton';
+import { SidebarNavContent } from '@/components/patterns/sidebar-nav/content';
+import { SidebarNavSkeleton } from '@/components/patterns/sidebar-nav/skeleton';
 import { SocialFeedContent } from '@/components/patterns/social-feed/content';
 import { SocialFeedSkeleton } from '@/components/patterns/social-feed/skeleton';
 import {
@@ -22,9 +26,11 @@ import {
   mockGalleryItems,
   mockKpis,
   mockMessages,
+  mockNavItems,
   mockProducts,
   mockProfile,
   mockProjectRows,
+  mockSettings,
   mockSocialPosts,
 } from '@/lib/mock-data';
 import { patternsMeta } from '@/lib/patterns-meta';
@@ -62,6 +68,14 @@ const patternComponents = {
   'chat-messages': {
     skeleton: <ChatMessagesSkeleton />,
     content: <ChatMessagesContent messages={mockMessages} />,
+  },
+  'settings-form': {
+    skeleton: <SettingsFormSkeleton />,
+    content: <SettingsFormContent settings={mockSettings} />,
+  },
+  'sidebar-nav': {
+    skeleton: <SidebarNavSkeleton />,
+    content: <SidebarNavContent nav={mockNavItems} />,
   },
 } satisfies Record<PatternSlug, { skeleton: React.ReactNode; content: React.ReactNode }>;
 

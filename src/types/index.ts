@@ -6,7 +6,9 @@ export type PatternSlug =
   | 'product-grid'
   | 'dashboard-stats'
   | 'media-gallery'
-  | 'chat-messages';
+  | 'chat-messages'
+  | 'settings-form'
+  | 'sidebar-nav';
 
 export interface PatternMeta {
   slug: PatternSlug;
@@ -94,4 +96,36 @@ export interface ChatMessage {
   sent: boolean;
   text: string;
   time: string;
+}
+
+export interface SettingsPreference {
+  key: string;
+  label: string;
+  description: string;
+  enabled: boolean;
+}
+
+export interface SettingsData {
+  displayName: string;
+  email: string;
+  bio: string;
+  preferences: SettingsPreference[];
+}
+
+export interface NavItem {
+  icon: 'layout-dashboard' | 'bar-chart-2' | 'folder' | 'inbox' | 'users' | 'plus' | 'settings' | 'calendar';
+  label: string;
+  active: boolean;
+  badge?: number;
+}
+
+export interface NavSection {
+  label: string | null;
+  items: NavItem[];
+}
+
+export interface NavData {
+  appName: string;
+  sections: NavSection[];
+  user: { name: string; role: string; avatarInitials: string };
 }

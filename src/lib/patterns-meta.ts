@@ -49,4 +49,16 @@ export const patternsMeta: PatternMeta[] = [
     rationale:
       'Chat interfaces have a unique skeleton requirement: message alignment communicates authorship. Sent messages align right; received align left. A skeleton that ignores this destroys the mental model built from prior conversation. Skeleton bubbles here mirror alignment and use the same border-radius shorthand as real bubbles — the highest form of skeleton UX, where the placeholder communicates genuine structural information.',
   },
+  {
+    slug: 'settings-form',
+    name: 'Settings Form',
+    rationale:
+      'Form layouts are the skeleton pattern most likely to cause CLS if done carelessly. Input fields have a fixed height contract — the browser reserves no space for them until they render. Skeleton inputs here use h-10, matching the exact rendered height of real inputs, so the page does not shift a single pixel on reveal. Toggle skeletons use a fixed 44×24px pill, matching the real toggle dimensions, preventing the preference rows from jumping horizontally when content loads.',
+  },
+  {
+    slug: 'sidebar-nav',
+    name: 'Sidebar Navigation',
+    rationale:
+      'Navigation is app chrome, not content — users reach for it immediately on load. A blank sidebar while content populates is uniquely disorienting because it removes the spatial anchor users orient from. This skeleton renders the full structural grammar: logo region, primary nav rows with icon and label columns, a section header, and the account footer. Icon placeholder squares match the 17px icon size exactly, keeping item row heights identical between skeleton and loaded states.',
+  },
 ];

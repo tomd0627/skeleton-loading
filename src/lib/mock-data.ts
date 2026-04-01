@@ -3,9 +3,11 @@ import type {
   ChatMessage,
   GalleryItem,
   KpiData,
+  NavData,
   ProductData,
   ProfileData,
   ProjectRow,
+  SettingsData,
   SocialPostData,
 } from '@/types';
 
@@ -158,6 +160,57 @@ export const mockGalleryItems: GalleryItem[] = [
   { id: 7, label: 'Glass & Copper',   aspectRatio: '1/1',  swatch: 3 },
   { id: 8, label: 'Late Afternoon',   aspectRatio: '16/9', swatch: 4 },
 ];
+
+export const mockSettings: SettingsData = {
+  displayName: 'Jordan Rivera',
+  email: 'jordan@meridian.io',
+  bio: 'Designing systems that feel alive without demanding attention.',
+  preferences: [
+    {
+      key: 'email-notifications',
+      label: 'Email Notifications',
+      description: 'Receive updates about activity on your projects',
+      enabled: true,
+    },
+    {
+      key: 'public-profile',
+      label: 'Public Profile',
+      description: 'Allow others to discover your profile in search',
+      enabled: false,
+    },
+    {
+      key: 'two-factor',
+      label: 'Two-Factor Authentication',
+      description: 'Require a verification code when signing in',
+      enabled: true,
+    },
+  ],
+};
+
+export const mockNavItems: NavData = {
+  appName: 'Meridian',
+  sections: [
+    {
+      label: null,
+      items: [
+        { icon: 'layout-dashboard', label: 'Dashboard', active: true },
+        { icon: 'bar-chart-2', label: 'Analytics', active: false },
+        { icon: 'folder', label: 'Projects', active: false, badge: 3 },
+        { icon: 'inbox', label: 'Inbox', active: false, badge: 12 },
+        { icon: 'calendar', label: 'Calendar', active: false },
+      ],
+    },
+    {
+      label: 'Team',
+      items: [
+        { icon: 'users', label: 'Atlas Team', active: false },
+        { icon: 'users', label: 'Nova Team', active: false },
+        { icon: 'plus', label: 'New Team', active: false },
+      ],
+    },
+  ],
+  user: { name: 'Jordan Rivera', role: 'Admin', avatarInitials: 'JR' },
+};
 
 export const mockMessages: ChatMessage[] = [
   { id: 1, sent: false, text: 'Hey! Did you get a chance to look at the loading states PR?', time: '2:14 PM' },
